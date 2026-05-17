@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         currentConvId = newId;
         currentChatTitle.innerText = "New Conversation";
-        chatWindow.innerHTML = '<div class="welcome-message"><h2>Nexus AI is ready.</h2><p>How can I assist you today?</p></div>';
+        chatWindow.innerHTML = '<div class="welcome-message"><h2>Personal AI Assistant is ready.</h2><p>How can I assist you today?</p></div>';
         loadConversationsList();
     }
 
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         chatWindow.innerHTML = '';
         if (conv.messages.length === 0) {
-            chatWindow.innerHTML = '<div class="welcome-message"><h2>Nexus AI is ready.</h2><p>How can I assist you today?</p></div>';
+            chatWindow.innerHTML = '<div class="welcome-message"><h2>Personal AI Assistant is ready.</h2><p>How can I assist you today?</p></div>';
         } else {
             conv.messages.forEach(m => appendMessage(m.role, m.content));
         }

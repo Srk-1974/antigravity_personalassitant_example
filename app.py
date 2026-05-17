@@ -173,5 +173,5 @@ def chat():
     return jsonify({"reply": reply_content})
 
 if __name__ == '__main__':
-    print("Starting Nexus AI Backend on http://localhost:8080")
+    print("Starting Personal AI Assistant Backend on http://localhost:8080")
     app.run(host='0.0.0.0', port=8080, debug=False)
