@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus - Personal AI Agent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar glass-panel">
+            <div class="brand">
+                <div class="logo"></div>
+                <h1>Nexus AI</h1>
+            </div>
+
+            <nav class="tabs">
+                <button class="tab-btn active" data-target="chat-tab">Chat</button>
+                <button class="tab-btn" data-target="config-tab">Configuration</button>
+            </nav>
+
+            <div class="history-section">
+                <h3>Recent Conversations</h3>
+                <div id="history-list" class="history-list">
+                    <!-- Conversations loaded here dynamically -->
+                </div>
+                <button id="btn-new-chat" class="btn-primary mt-auto">+ New Chat</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Chat View -->
+            <section id="chat-tab" class="view-section active">
+                <div class="chat-header glass-panel">
+                    <div class="agent-info">
+                        <h2 id="current-chat-title">New Conversation</h2>
+                        <span id="agent-status" class="status-badge"><span class="dot pulse"></span> <span id="agent-mode-display">Coding Assistant</span></span>
+                    </div>
+                </div>
+
+                <div id="chat-window" class="chat-window">
+                    <div class="welcome-message">
+                        <h2>Welcome to Nexus.</h2>
+                        <p>Your ultra-fast, C++ powered AI companion.</p>
+                    </div>
+                    <!-- Messages go here -->
+                </div>
+
+                <div class="chat-input-area glass-panel">
+                    <textarea id="chat-input" placeholder="Type a message to your agent..." rows="1"></textarea>
+                    <button id="btn-send" class="btn-send">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Configuration View -->
+            <section id="config-tab" class="view-section">
+                <div class="config-container glass-panel scrollable">
+                    <h2>Agent Configuration</h2>
+                    <p class="subtitle">Customize your universal LLM connections and agent behavior.</p>
+
+                    <div class="config-group">
+                        <label>Active Provider</label>
+                        <select id="sel-provider">
+                            <option value="Groq">Groq (Ultra-fast)</option>
+                            <option value="OpenAI">OpenAI</option>
+                            <option value="Ollama">Ollama (Local)</option>
+                            <option value="Gemini">Gemini</option>
+                        </select>
+                    </div>
+
+                    <div class="config-group">
+                        <label>Base URL</label>
+                        <input type="text" id="inp-base-url" placeholder="https://api.groq.com/openai/v1">
+                    </div>
+
+                    <div class="config-group">
+                        <label>API Key (Saved locally or in .env)</label>
+                        <input type="password" id="inp-api-key" placeholder="sk-...">
+                    </div>
+
+                    <div class="config-group">
+                        <label>Model Name</label>
+                        <input type="text" id="inp-model-name" placeholder="llama3-8b-8192">
+                    </div>
+
+                    <div class="config-row">
+                        <div class="config-group">
+                            <label>Temperature (<span id="val-temp">0.7</span>)</label>
+                            <input type="range" id="inp-temp" min="0" max="2" step="0.1" value="0.7">
+                        </div>
+                        <div class="config-group">
+                            <label>Max Tokens</label>
+                            <input type="number" id="inp-max-tokens" value="2048">
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <h3>Agent Personas</h3>
+                    <div class="config-group">
+                        <label>Agent Mode</label>
+                        <select id="sel-agent-mode">
+                            <option value="Coding Assistant">Coding Assistant</option>
+                            <option value="Research Assistant">Research Assistant</option>
+                            <option value="DevOps Assistant">DevOps Assistant</option>
+                            <option value="Cybersecurity Assistant">Cybersecurity Assistant</option>
+                        </select>
+                    </div>
+
+                    <div class="config-group checkbox-group">
+                        <input type="checkbox" id="chk-reasoning" checked>
+                        <label for="chk-reasoning">Enable Internal Reasoning Mode (Think before answering)</label>
+                    </div>
+
+                    <div class="config-group">
+                        <label>System Prompt</label>
+                        <textarea id="inp-system-prompt" rows="4">You are a helpful, expert Personal AI Agent.</textarea>
+                    </div>
+
+                    <button id="btn-save-config" class="btn-primary w-full">Save Configuration</button>
+                    <div id="config-status" class="status-msg"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

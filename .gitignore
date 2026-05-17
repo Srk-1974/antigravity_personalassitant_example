@@ -1,0 +1,21 @@
+# C++ build artifacts
+build/
+*.exe
+*.obj
+*.pdb
+*.lib
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Environment and Data
+.env
+config.json
+conversations.json
